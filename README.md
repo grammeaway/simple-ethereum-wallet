@@ -1,4 +1,4 @@
-# Simple Ethereum-Wallet
+# Simple Ethereum Wallet
 A simple wallet, developed as a university-project, to be used with a local Ganache network.
 Disclaimer: Using this on an actual Ethereum network, transfering real ETH, is completely your own responsibility.
 The wallet is written in Vue.js
