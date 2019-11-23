@@ -7,6 +7,8 @@
               v-bind:address="account.address"
               v-bind:ethamount="account.amount"
               />
+              <h3><u>Total amount of ETH:</u> {{totalETH}} ETH</h3>
+              <hr align="left">
           </div>
     
     </div>
@@ -27,7 +29,7 @@ export default {
   this.addresses = r
   this.getAmounts()
   })},
-  data: () => ({addresses: [], amounts: [], accounts:[]}),
+  data: () => ({addresses: [], amounts: [], accounts:[], totalETH: 0}),
   methods: { 
     coupleAddressAndValue: function(i) {        
     this.accounts[i] = {address: this.addresses[i], amount: this.amounts[i]} 
@@ -38,6 +40,7 @@ export default {
     await ethclient.eth.getBalance(this.addresses[i])
     .then(r => {
     this.amounts[i] = r / 1000000000000000000
+    this.totalETH += r / 1000000000000000000
     this.coupleAddressAndValue(i)
     })} this.$forceUpdate()},
   }
